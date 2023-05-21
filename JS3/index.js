@@ -1,35 +1,38 @@
-fetch('https://reqres.in/api/users')
-.then(response => response.json())
-.then(data => {
-    const users = data.data;
-    const tableBody = document.querySelector('#ut tbody');
 
-    users.forEach(user => {
-        const row = document.createElement('tr');
-        const avtd = document.createElement('td');
-        const avimage = document.createElement('img');
-        avimage.src = user.avatar;
-        avtd.appendChild(avimage);
+for(var i=1;i<=2;i++){
+    fetch('https://reqres.in/api/users?page='+i)
+    .then(response => response.json())
+    .then(resp => {
+        const users = resp.data;
+        const tableBody = document.querySelector('#ut tbody');
 
-        const idtd = document.createElement('td');
-        idtd.textContent = user.id;
+        users.forEach(user => {
+            const row = document.createElement('tr');
+            const avtd = document.createElement('td');
+            const avimage = document.createElement('img');
+            avimage.src = user.avatar;
+            avtd.appendChild(avimage);
 
-        const emailtd = document.createElement('td');
-        emailtd.textContent = user.email;
+            const idtd = document.createElement('td');
+            idtd.textContent = user.id;
 
-        const name1td = document.createElement('td');
-        name1td.textContent = user.first_name;
+            const emailtd = document.createElement('td');
+            emailtd.textContent = user.email;
 
-        const name2td = document.createElement('td');
-        name2td.textContent = user.last_name;
+            const name1td = document.createElement('td');
+            name1td.textContent = user.first_name;
 
-        row.appendChild(idtd);
-        row.appendChild(avtd);
-        row.appendChild(emailtd);
-        row.appendChild(name1td);
-        row.appendChild(name2td);
+            const name2td = document.createElement('td');
+            name2td.textContent = user.last_name;
 
-        tableBody.appendChild(row);
-    });
-})
-.catch(error => console.log(error));
+            row.appendChild(idtd);
+            row.appendChild(avtd);
+            row.appendChild(emailtd);
+            row.appendChild(name1td);
+            row.appendChild(name2td);
+
+            tableBody.appendChild(row);
+        });
+    })
+    .catch(error => console.log(error));
+}
