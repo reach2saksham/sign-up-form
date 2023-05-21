@@ -17,7 +17,7 @@ function validateForm(event) {
 
   // Validation patterns
   const phonePattern = /^\d{10}$/; // 10 digits only
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
+  const emailPattern = /.+@.+\..+/gm; // I know it's not the best regex :(
 
   // Perform field validations
   let isValid = true;
