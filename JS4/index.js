@@ -33,7 +33,7 @@ const form = document.getElementById('myform');
 
         if (response.ok) {
           // Success
-          errorMessage.textContent = 'Sign in successful!';
+          errorMessage.textContent = 'Sign in successful! Token Recieved : '+data.token;
           errorMessage.classList.remove('error');
         } else {
           // Error
