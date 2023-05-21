@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign-Up Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="myform">
+    <label for="email">Email:</label>
+    <input type="text" onkeypress="removeerror()" onblur="removeerror()" id="email" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <button type="submit">Sign In</button>
+  </form>
+  <div id="error-message" class="error"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
